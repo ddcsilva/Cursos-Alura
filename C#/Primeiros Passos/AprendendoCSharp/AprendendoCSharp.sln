@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01-PrimeiroProjeto", "01-PrimeiroProjeto\01-PrimeiroProjeto.csproj", "{E63BD525-2BA7-43E6-A0E3-0936735EE481}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-CriandoVariaveis", "02-CriandoVariaveis\02-CriandoVariaveis.csproj", "{D9644272-E22C-4186-B9DA-5722BCDAD82C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02-CriandoVariaveis", "02-CriandoVariaveis\02-CriandoVariaveis.csproj", "{D9644272-E22C-4186-B9DA-5722BCDAD82C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-CriandoVariaveisPontoFlutuante", "03-CriandoVariaveisPontoFlutuante\03-CriandoVariaveisPontoFlutuante.csproj", "{40C4AEEF-F7D9-4DE1-8A31-00F8799EA047}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D9644272-E22C-4186-B9DA-5722BCDAD82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9644272-E22C-4186-B9DA-5722BCDAD82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9644272-E22C-4186-B9DA-5722BCDAD82C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C4AEEF-F7D9-4DE1-8A31-00F8799EA047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C4AEEF-F7D9-4DE1-8A31-00F8799EA047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C4AEEF-F7D9-4DE1-8A31-00F8799EA047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C4AEEF-F7D9-4DE1-8A31-00F8799EA047}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
