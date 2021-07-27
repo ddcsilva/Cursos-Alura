@@ -1,4 +1,6 @@
-﻿namespace _05_ByteBank
+﻿using System;
+
+namespace _05_ByteBank
 {
     class Program
     {
@@ -7,12 +9,12 @@
             ContaCorrente contaDoBruno = new ContaCorrente();
             contaDoBruno.titular = "Bruno";
 
-            System.Console.WriteLine(contaDoBruno.saldo);
+            Console.WriteLine(contaDoBruno.saldo);
 
             bool resultadoSaque = contaDoBruno.Sacar(50);
-            System.Console.WriteLine(resultadoSaque);
+            Console.WriteLine(resultadoSaque);
 
-            System.Console.WriteLine(contaDoBruno.saldo);
+            Console.WriteLine(contaDoBruno.saldo);
         }
     }
 }
