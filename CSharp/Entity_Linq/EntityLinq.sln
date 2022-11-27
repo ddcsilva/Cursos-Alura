@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5A2F28F9-43F5-4ECE-B543-9E55AEE514AE}"
+	ProjectSection(SolutionItems) = preProject
+		Data\AluraTunes.sql = Data\AluraTunes.sql
+		Data\AluraTunes.xml = Data\AluraTunes.xml
+		Data\LICENSE.txt = Data\LICENSE.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluraTunesAula1", "AluraTunesAula1\AluraTunesAula1.csproj", "{14EC3208-2431-42A7-9074-4F46167E4516}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14EC3208-2431-42A7-9074-4F46167E4516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14EC3208-2431-42A7-9074-4F46167E4516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14EC3208-2431-42A7-9074-4F46167E4516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14EC3208-2431-42A7-9074-4F46167E4516}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7155378E-02DC-4B81-94FF-CEE937A440BC}
+	EndGlobalSection
+EndGlobal
