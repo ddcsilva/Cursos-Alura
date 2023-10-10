@@ -1,7 +1,8 @@
 ﻿// Screen Sound
 string mensagemDeBoasVindas = "Boas vindas ao Screen Sound";
+List<string> listaDeBandas = new List<string> { "Iron Maiden", "AC/DC", "Megadeth", "Metallica" };
 
-void ExibirMensagemDeBoasVindas()
+void ExibirLogo()
 {
     Console.WriteLine(@"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
@@ -16,6 +17,8 @@ void ExibirMensagemDeBoasVindas()
 
 void ExibirOpcoesDoMenu()
 {
+    Console.Clear();
+    ExibirLogo();
     Console.WriteLine();
     Console.WriteLine("Digite 1 para registrar uma banda");
     Console.WriteLine("Digite 2 para mostrar todas as bandas");
@@ -31,10 +34,10 @@ void ExibirOpcoesDoMenu()
     switch (opcaoEscolhidaNumerica)
     {
         case 1:
-            Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaNumerica);
+            RegistrarBanda();
             break;
         case 2:
-            Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaNumerica);
+            ExibirBandasRegistradas();
             break;
         case 3:
             Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaNumerica);
@@ -51,5 +54,35 @@ void ExibirOpcoesDoMenu()
     }
 }
 
-ExibirMensagemDeBoasVindas();
+void RegistrarBanda()
+{
+    Console.Clear();
+    Console.WriteLine(".:: Registro de Bandas ::.");
+    Console.WriteLine();
+    Console.WriteLine("Digite o nome da banda que deseja registrar: ");
+    string nomeDaBanda = Console.ReadLine()!;
+    listaDeBandas.Add(nomeDaBanda);
+    Console.WriteLine($"A banda {nomeDaBanda} registrada com sucesso!");
+    Thread.Sleep(2000);
+    Console.Clear();
+    ExibirOpcoesDoMenu();
+}
+
+void ExibirBandasRegistradas()
+{
+    Console.Clear();
+    Console.WriteLine(".:: Bandas Registradas ::.");
+    Console.WriteLine();
+
+    for (int i = 0; i < listaDeBandas.Count; i++)
+    {
+        Console.WriteLine($"{i}. {listaDeBandas[i]}");
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("Digite qualquer tecla para voltar ao menu");
+    Console.ReadLine();
+    ExibirOpcoesDoMenu();
+}
+
 ExibirOpcoesDoMenu();
