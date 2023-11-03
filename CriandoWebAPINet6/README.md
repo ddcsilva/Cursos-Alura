@@ -16,12 +16,12 @@ O curso aborda a criação de uma Web API usando .NET 6. Os principais tópicos 
 
 O repositório está organizado conforme as aulas do curso:
 
-1. **Entendendo o Conceito**: `Pasta-01`
-2. **Iniciando o projeto .NET 6**: `Pasta-02`
-3. **Consultando e Paginando**: `Pasta-03`
-4. **Utilizando Banco de Dados**: `Pasta-04`
-5. **Atualizando e Removendo**: `Pasta-05`
-6. **Documentando com Swagger**: `Pasta-06`
+1. **Entendendo o Conceito**: `Cap-01`
+2. **Iniciando o projeto .NET 6**: `Cap-02`
+3. **Consultando e Paginando**: `Cap-03`
+4. **Utilizando Banco de Dados**: `Cap-04`
+5. **Atualizando e Removendo**: `Cap-05`
+6. **Documentando com Swagger**: `Cap-06`
 
 Cada pasta contém os códigos desenvolvidos durante a respectiva aula, junto com anotações pessoais e observações importantes.
 
