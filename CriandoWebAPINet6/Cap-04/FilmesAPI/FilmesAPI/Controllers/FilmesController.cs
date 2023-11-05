@@ -73,7 +73,7 @@ public class FilmesController : Controller
             return ValidationProblem(ModelState);
         }
 
-        _mapper.Map(filmeDto, filme);
+        _mapper.Map(filmeParaAtualizar, filme);
         _context.SaveChanges();
 
         return NoContent();
