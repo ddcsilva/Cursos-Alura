@@ -2,6 +2,7 @@
 using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmesAPI.Controllers;
@@ -33,6 +34,7 @@ public class FilmesController : Controller
     }
 
     [HttpPut("{id}")]
+    // O método AtualizaFilme() recebe o id do filme que deve ser atualizado e o objeto filmeDto que contém os novos dados do filme.
     public IActionResult AtualizaFilme(int id, [FromBody] UpdateFilmeDto filmeDto)
     {
         var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
@@ -40,6 +42,35 @@ public class FilmesController : Controller
         if (filme == null)
         {
             return NotFound();
+        }
+
+        _mapper.Map(filmeDto, filme);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpPatch("{id}")]
+    // O método AtualizaFilmeParcialmente() recebe o id do filme que deve ser atualizado e o objeto filmeDto que contém os novos dados do filme.
+    public IActionResult AtualizaFilmeParcialmente(int id, JsonPatchDocument<UpdateFilmeDto> patchFilme)
+    {
+        var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+
+        if (filme == null)
+        {
+            return NotFound();
+        }
+
+        var filmeParaAtualizar = _mapper.Map<UpdateFilmeDto>(filme);
+
+        // O método ApplyTo() aplica as alterações do objeto patchFilme no objeto filmeParaAtualizar.
+        patchFilme.ApplyTo(filmeParaAtualizar, ModelState);
+
+        // O método TryValidateModel() verifica se o objeto filmeParaAtualizar é válido.
+        if (!TryValidateModel(filmeParaAtualizar))
+        {
+            // ValidationProblem: Retorna o código 400 (Bad Request) para o cliente.
+            return ValidationProblem(ModelState);
         }
 
         _mapper.Map(filmeDto, filme);
