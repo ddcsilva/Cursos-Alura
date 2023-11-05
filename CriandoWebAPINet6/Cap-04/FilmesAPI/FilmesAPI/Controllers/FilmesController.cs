@@ -79,13 +79,30 @@ public class FilmesController : Controller
         return NoContent();
     }
 
+    [HttpDelete("{id}")]
+    // O método DeletaFilme() recebe o id do filme que deve ser deletado.
+    public IActionResult DeletaFilme(int id)
+    {
+        var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+
+        if (filme == null)
+        {
+            return NotFound();
+        }
+
+        _context.Remove(filme);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+
     [HttpGet]
     // O método RecuperaFilmes() retorna a lista de filmes que está armazenada na memória do servidor.
-    public IEnumerable<Filme> RecuperaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 50)
+    public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 50)
     {
         // Skip: Parâmetro que indica quantos elementos devem ser ignorados no início da lista.
         // Take: Parâmetro que indica quantos elementos devem ser retornados.
-        return _context.Filmes.Skip(skip).Take(take);
+        return _mapper.Map<IEnumerable<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take));
     }
 
     [HttpGet("{id}")]
@@ -100,7 +117,9 @@ public class FilmesController : Controller
             return NotFound("Filme não encontrado");
         }
 
+        var filmeDto = _mapper.Map<ReadFilmeDto>(filme);
+
         // Ok: Retorna o código 200 (OK) para o cliente.
-        return Ok(filme);
+        return Ok(filmeDto);
     }
 }
