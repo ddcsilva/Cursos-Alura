@@ -39,7 +39,7 @@ public class FilmesController : Controller
         if (filme == null)
         {
             // NotFound: Retorna o código 404 (Not Found) para o cliente.
-            return NotFound();
+            return NotFound("Filme não encontrado");
         }
 
         // Ok: Retorna o código 200 (OK) para o cliente.
