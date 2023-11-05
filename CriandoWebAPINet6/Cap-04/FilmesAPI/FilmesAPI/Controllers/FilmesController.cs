@@ -32,6 +32,22 @@ public class FilmesController : Controller
         return CreatedAtAction(nameof(RecuperaFilmePorId), new { Id = filme.Id }, filme);
     }
 
+    [HttpPut("{id}")]
+    public IActionResult AtualizaFilme(int id, [FromBody] UpdateFilmeDto filmeDto)
+    {
+        var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+
+        if (filme == null)
+        {
+            return NotFound();
+        }
+
+        _mapper.Map(filmeDto, filme);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+
     [HttpGet]
     // O método RecuperaFilmes() retorna a lista de filmes que está armazenada na memória do servidor.
     public IEnumerable<Filme> RecuperaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 50)
