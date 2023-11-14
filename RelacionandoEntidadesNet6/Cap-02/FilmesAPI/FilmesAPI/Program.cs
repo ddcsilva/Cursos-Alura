@@ -8,7 +8,8 @@ var connectionString = builder.Configuration.GetConnectionString("FilmesConnecti
 
 builder.Services.AddDbContext<FilmesContext>(options =>
 {
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    // Lazy Loading: É uma técnica de carregamento de dados que atrasa a carga de dados de um objeto até que seja necessário.
+    options.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
