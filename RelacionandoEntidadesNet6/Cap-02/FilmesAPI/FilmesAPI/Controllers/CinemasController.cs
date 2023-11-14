@@ -7,12 +7,12 @@ namespace FilmesAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CinemaController : ControllerBase
+public class CinemasController : ControllerBase
 {
     private readonly FilmesContext _context;
     private IMapper _mapper;
 
-    public CinemaController(FilmesContext context, IMapper mapper)
+    public CinemasController(FilmesContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
