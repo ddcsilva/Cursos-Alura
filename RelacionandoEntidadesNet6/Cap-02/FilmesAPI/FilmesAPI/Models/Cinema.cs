@@ -8,6 +8,6 @@ public class Cinema
     [Required]
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "O campo nome é obrigatório")]
+    [Required]
     public string Nome { get; set; }
 }
