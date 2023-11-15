@@ -18,4 +18,6 @@ public class Filme
     [Required]
     [Range(70, 300)]
     public int Duracao { get; set; }
+
+    public virtual ICollection<Sessao> Sessoes { get; set; }
 }

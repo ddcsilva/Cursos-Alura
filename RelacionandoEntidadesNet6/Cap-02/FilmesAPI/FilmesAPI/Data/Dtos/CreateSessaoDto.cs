@@ -4,4 +4,6 @@ namespace FilmesAPI.Data.Dtos;
 
 public class CreateSessaoDto
 {
+    [Required]
+    public int FilmeId { get; set; }
 }

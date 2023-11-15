@@ -8,12 +8,12 @@ namespace FilmesAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class SessaoController : ControllerBase
+public class SessoesController : ControllerBase
 {
     private readonly FilmesContext _context;
     private IMapper _mapper;
 
-    public SessaoController(FilmesContext context, IMapper mapper)
+    public SessoesController(FilmesContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
