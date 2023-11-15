@@ -2,18 +2,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FilmesAPI.Models;
 
-public class Sessao
+public class Endereco
 {
     [Key]
     [Required]
     public int Id { get; set; }
 
     [Required]
-    public int FilmeId { get; set; }
+    public string Logradouro { get; set; }
 
-    public virtual Filme Filme { get; set; }
-
-    public int CinemaId { get; set; }
+    [Required]
+    public int Numero { get; set; }
 
     public virtual Cinema Cinema { get; set; }
 }
