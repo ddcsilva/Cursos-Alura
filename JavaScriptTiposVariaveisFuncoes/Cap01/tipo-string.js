@@ -22,3 +22,19 @@ console.log(frase + meuNome);
 // Template String ou Template Literal (crase)
 const templateString = `Meu nome é ${meuNome}`;
 console.log(`templateString: ${templateString}`);
+
+console.log('--------------------------------------');
+
+// Tipo String: Caracteres especiais
+
+const cifrao = '\u0024';
+console.log(`cifrao: ${cifrao}`);
+
+const aMaiusculo = '\u0041';
+console.log(`aMaiusculo: ${aMaiusculo}`);
+
+const tique = '\u2705';
+console.log(`tique: ${tique}`);
+
+const hiragana = '\u3042';
+console.log(`hiragana: ${hiragana}`);
