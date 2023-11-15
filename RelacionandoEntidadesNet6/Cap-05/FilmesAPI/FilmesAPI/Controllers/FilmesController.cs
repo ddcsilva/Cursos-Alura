@@ -124,11 +124,17 @@ public class FilmesController : Controller
 
     [HttpGet]
     // O método RecuperaFilmes() retorna a lista de filmes que está armazenada na memória do servidor.
-    public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 50)
+    public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 50, [FromQuery] string? nomeCinema = null)
     {
-        // Skip: Parâmetro que indica quantos elementos devem ser ignorados no início da lista.
-        // Take: Parâmetro que indica quantos elementos devem ser retornados.
-        return _mapper.Map<IEnumerable<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take).ToList());
+        if (nomeCinema == null)
+        {
+            // Skip: Parâmetro que indica quantos elementos devem ser ignorados no início da lista.
+            // Take: Parâmetro que indica quantos elementos devem ser retornados.
+            return _mapper.Map<IEnumerable<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take).ToList());
+        }
+
+        return _mapper.Map<IEnumerable<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take)
+            .Where(filme => filme.Sessoes.Any(sessao => sessao.Cinema.Nome == nomeCinema)).ToList());
     }
 
     [HttpGet("{id}")]
