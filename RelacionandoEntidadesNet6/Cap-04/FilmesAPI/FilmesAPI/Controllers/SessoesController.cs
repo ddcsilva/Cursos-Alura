@@ -25,7 +25,11 @@ public class SessoesController : ControllerBase
         Sessao sessao = _mapper.Map<Sessao>(sessaoDto);
         _context.Sessoes.Add(sessao);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(RecuperaSessaoPorId), new { Id = sessao.Id }, sessao);
+        return CreatedAtAction(nameof(RecuperaSessaoPorId), new
+        {
+            filmeId = sessao.FilmeId,
+            cinemaId = sessao.CinemaId
+        }, sessao);
     }
 
     [HttpGet]
@@ -34,10 +38,12 @@ public class SessoesController : ControllerBase
         return _mapper.Map<IEnumerable<ReadSessaoDto>>(_context.Sessoes.ToList());
     }
 
-    [HttpGet("{id}")]
-    public IActionResult RecuperaSessaoPorId(int id)
+    [HttpGet("{filmeId}/{cinemaId}")]
+    public IActionResult RecuperaSessaoPorId(int filmeId, int cinemaId)
     {
-        Sessao sessao = _context.Sessoes.FirstOrDefault(sessao => sessao.Id == id);
+        Sessao sessao = _context.Sessoes.FirstOrDefault(sessao =>
+            sessao.FilmeId == filmeId && sessao.CinemaId == cinemaId);
+
         if (sessao != null)
         {
             ReadSessaoDto sessaoDto = _mapper.Map<ReadSessaoDto>(sessao);
