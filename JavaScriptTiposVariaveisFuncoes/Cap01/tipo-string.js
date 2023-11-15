@@ -38,3 +38,21 @@ console.log(`tique: ${tique}`);
 
 const hiragana = '\u3042';
 console.log(`hiragana: ${hiragana}`);
+
+console.log('--------------------------------------');
+
+// 
+
+const cidade = "belo horizonte"; // string
+const input = "Belo Horizonte"; // vem do usuário
+console.log(cidade === input); // false
+
+const inputMinusculo = input.toLowerCase();
+console.log(cidade === inputMinusculo); // true
+
+console.log('--------------------------------------');
+
+// Tipo String: Propriedade length
+
+const senha1 = "minhaSenha123";
+console.log(senha1.length); // 13
