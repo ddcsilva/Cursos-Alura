@@ -26,5 +26,10 @@ public class FilmesContext : DbContext
             .HasOne(sessao => sessao.Filme) // Uma Sessão tem um Filme
             .WithMany(filme => filme.Sessoes) // Um Filme tem várias Sessões
             .HasForeignKey(sessao => sessao.FilmeId); // A chave estrangeira de Sessão é FilmeId
+
+        modelBuilder.Entity<Endereco>()
+            .HasOne(endereco => endereco.Cinema) // Um Endereço tem um Cinema
+            .WithOne(cinema => cinema.Endereco) // Um Cinema tem um Endereço
+            .OnDelete(DeleteBehavior.Restrict); // Não exclui o Endereço quando o Cinema for excluído
     }
 }
