@@ -6,14 +6,12 @@ Este repositório é dedicado aos cursos que estou realizando na plataforma Alur
 
 Abaixo estão os cursos que já estão disponíveis neste repositório:
 
-### JavaScript: Tipos, Variáveis e Funções
-- **Diretório**: [JavaScript-Tipos-Variaveis-Funcoes](./JavaScript-Tipos-Variaveis-Funcoes)
+### JavaScript
+- **[JavaScript: Tipos, Variáveis e Funções](./JavaScript-Tipos-Variaveis-Funcoes)**
 
-### .NET 6: Criando uma Web API
-- **Diretório**: [Net-6-Criando-Web-API](./Net-6-Criando-Web-API)
-
-### .NET 6: Relacionando Entidades
-- **Diretório**: [Net-6-Relacionando-Entidade](./Net-6-Relacionando-Entidade)
+### .NET
+- **[.NET 6: Criando uma Web API](./Net-6-Criando-Web-API)**
+- **[.NET 6: Relacionando Entidades](./Net-6-Relacionando-Entidade)**
 
 ## Estrutura do Repositório
 
