@@ -6,7 +6,12 @@
 // getElementById é um método que retorna o elemento que possui o atributo id com o valor especificado.
 // setAttribute é um método que define o valor de um atributo em um elemento HTML.
 // removeAttribute é um método que remove o atributo especificado de um elemento HTML.
+// array é um objeto que armazena uma coleção de elementos.
+// includes é um método que verifica se um array contém um determinado elemento e retorna true ou false.
+// push é um método que adiciona um ou mais elementos ao final de um array e retorna o novo comprimento do array.
 
+let listaNumerosSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
@@ -38,7 +43,19 @@ function verificarChute() {
 }
 
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+    let quantidadeNumerosSorteados = listaNumerosSorteados.length;
+
+    if (quantidadeNumerosSorteados == numero) {
+        listaNumerosSorteados = [];
+    }
+
+    if (listaNumerosSorteados.includes(numeroEscolhido)) {
+        return gerarNumeroAleatorio(); // Recursividade
+    } else {
+        listaNumerosSorteados.push(numeroEscolhido);
+        return numeroEscolhido;
+    }
 }
 
 function limparCampo() {
