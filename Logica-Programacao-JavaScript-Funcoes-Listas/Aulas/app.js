@@ -20,6 +20,7 @@ exibirMensagemInicial();
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', { rate: 1.1 });
 }
 
 function verificarChute() {
@@ -46,7 +47,7 @@ function gerarNumeroAleatorio() {
     let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
     let quantidadeNumerosSorteados = listaNumerosSorteados.length;
 
-    if (quantidadeNumerosSorteados == numero) {
+    if (quantidadeNumerosSorteados == numeroLimite) {
         listaNumerosSorteados = [];
     }
 
