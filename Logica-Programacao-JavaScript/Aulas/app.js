@@ -24,14 +24,15 @@
 // parseInt() é uma função que converte uma string em um número inteiro
 
 alert('Bem-vindo ao jogo de adivinhação!');
-let numeroSecreto = parseInt(Math.random() * 10 + 1);
+let numeroMaximo = 5000;
+let numeroSecreto = parseInt(Math.random() * numeroMaximo + 1);
 console.log('Número Secreto: ', numeroSecreto);
 let chute;
 let tentativas = 1;
 
 // Enquanto o chute for diferente do número secreto, solicita um novo chute ao usuário
 while (chute != numeroSecreto) {
-    chute = prompt('Digite um número entre 0 e 10:');
+    chute = prompt('Digite um número entre 1 e ' + numeroMaximo + ':');
 
     // Se o chute for igual ao número secreto, exibe uma mensagem de parabéns, senão, exibe uma mensagem informando se o número secreto é maior ou menor que o chute
     if (numeroSecreto == chute) {
