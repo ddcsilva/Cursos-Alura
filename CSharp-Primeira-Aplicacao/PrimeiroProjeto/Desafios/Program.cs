@@ -1,6 +1,7 @@
-﻿string curso = "C#";
-Console.WriteLine($"Curso de {curso}");
+﻿using Desafios;
 
-string nomeInstrutor1 = "Daniel Portugal";
-string nomeInstrutor2 = "Guilherme Lima";
-Console.WriteLine($"Instrutores: {nomeInstrutor1} e {nomeInstrutor2}");
+var desafio01 = new Desafio01();
+desafio01.iniciar();
+
+var desafio02 = new Desafio02();
+desafio02.iniciar();
