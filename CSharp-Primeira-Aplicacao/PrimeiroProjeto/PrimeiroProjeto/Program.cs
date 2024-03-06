@@ -1,9 +1,11 @@
 ﻿// Screen Sound
 string mensagemDeBoasVindas = "Boas vindas ao Screen Sound";
-//List<string> listaDasBandas = new List<string> { "U2", "The Beatles", "Calypso"};  
-Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
-bandasRegistradas.Add("Linkin Park", new List<int> { 10, 8, 6 });
-bandasRegistradas.Add("The Beatles", new List<int>());
+
+Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>
+{
+    { "Linkin Park", new List<int> { 10, 8, 6 } },
+    { "The Beatles", new List<int>() }
+};
 
 void ExibirLogo()
 {
@@ -73,11 +75,6 @@ void MostrarBandasRegistradas()
     Console.Clear();
     ExibirTituloDaOpcao("Exibindo todas as bandas registradas na nossa aplicação");
 
-    //for (int i = 0; i < listaDasBandas.Count; i++)
-    //{
-    //Console.WriteLine($"Banda: {listaDasBandas[i]}");
-    //}
-
     foreach (string banda in bandasRegistradas.Keys)
     {
         Console.WriteLine($"Banda: {banda}");
@@ -101,10 +98,6 @@ void ExibirTituloDaOpcao(string titulo)
 
 void AvaliarUmaBanda()
 {
-    //digite qual banda deseja avaliar
-    // se a banda exitir no dicionario >> atribuir uma nota
-    // senão, volta ao menu principal
-
     Console.Clear();
     ExibirTituloDaOpcao("Avaliar banda");
     Console.Write("Digite o nome da banda que deseja avaliar: ");
@@ -127,7 +120,6 @@ void AvaliarUmaBanda()
         Console.Clear();
         ExibirOpcoesDoMenu();
     }
-
 }
 
 void ExibirMedia()
@@ -155,6 +147,5 @@ void ExibirMedia()
         ExibirOpcoesDoMenu();
     }
 }
-
 
 ExibirOpcoesDoMenu();
