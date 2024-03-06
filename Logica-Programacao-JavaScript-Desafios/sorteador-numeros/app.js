@@ -2,6 +2,12 @@ function sortear() {
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
+
+    if (de >= ate) {
+        alert('O campo "No número" deve ser menor que o campo "Até o número"');
+        return;
+    }
+
     let numerosSorteados = [];
 
     for (let i = 0; i < quantidade; i++) {
