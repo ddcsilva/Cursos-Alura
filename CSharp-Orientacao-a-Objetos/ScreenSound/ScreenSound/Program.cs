@@ -1,17 +1,26 @@
 ﻿using ScreenSound;
 
-Album albumDoQueen = new Album();
-albumDoQueen.Nome = "A Night at the Opera";
+Banda queen = new Banda("Queen");
 
-Musica musicaQueen1 = new Musica();
-musicaQueen1.Nome = "Love of My Life";
-musicaQueen1.Duracao = 213;
+Album albumDoQueen = new Album("A Night at the Opera");
 
-Musica musicaQueen2 = new Musica();
-musicaQueen2.Nome = "Bohemian Rhapsody";
-musicaQueen2.Duracao = 354;
+Musica musicaQueen1 = new Musica(queen, "Love of My Life")
+{
+    Duracao = 213,
+    Disponivel = true
+};
+
+Musica musicaQueen2 = new Musica(queen, "Bohemian Rhapsody")
+{
+    Duracao = 354,
+    Disponivel = false
+};
 
 albumDoQueen.AdicionarMusica(musicaQueen1);
 albumDoQueen.AdicionarMusica(musicaQueen2);
+queen.AdicionarAlbum(albumDoQueen);
 
+musicaQueen1.ExibirFichaTecnica();
+musicaQueen2.ExibirFichaTecnica();
 albumDoQueen.ExibirMusicas();
+queen.ExibirDiscografia();
