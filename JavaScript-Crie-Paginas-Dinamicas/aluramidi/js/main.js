@@ -1,31 +1,44 @@
-// Por convenção, o arquivo principal de um projeto é chamado de main.js
+// Função para tocar o som correspondente ao seletor de áudio fornecido
+function tocarSom(seletorAudio) {
+    const elemento = document.querySelector(seletorAudio);
 
-// querySelector() => Retorna o primeiro elemento que corresponde a um grupo de seletores CSS.
-// querySelectorAll() => Retorna todos os elementos que correspondem a um grupo de seletores CSS em um objeto NodeList.
-// play() => Inicia ou retoma a reprodução do áudio ou vídeo.
-// const => Declara uma constante local ou global somente de leitura. Isso não significa que o valor é imutável, apenas que a variável constante não pode ser alterada ou reatribuída.
-// while => Cria um laço que executa uma rotina especifica enquanto a condição de teste for verdadeira. A condição é avaliada antes da execução da rotina.
-// for => Cria um laço que consiste em três expressões opcionais, dentro de parênteses e separadas por ponto e vírgula, seguidas por uma declaração ou uma sequência de declarações executadas em sequência.
+    if (!elemento) {
+        console.warn(`Elemento com seletor ${seletorAudio} não encontrado.`);
+        return;
+    }
 
-// É possível atribuir uma função a um evento de um elemento HTML através do atributo onclick.
-// A diferença entre tocarSomTeclaPom e tocarSomTeclaPom() é que a primeira é uma referência à função, enquanto a segunda é a chamada da função.
-// Uma função anônima é uma função sem nome. Ela é definida usando uma expressão de função ou uma expressão de função arrow.
-
-// Template Strings são strings que permitem expressões embutidas. Você pode utilizar string multi-linhas e interpolação de string com elas.
-
-function tocarSom(idElemento) {
-    document.querySelector(idElemento).play();
+    if (elemento.localName === 'audio') {
+        elemento.currentTime = 0;
+        elemento.play();
+    } else {
+        console.warn(`Elemento com seletor ${seletorAudio} não é um áudio.`);
+    }
 }
 
+// Seleciona todas as teclas
 const listaDeTeclas = document.querySelectorAll('.tecla');
-let contador = 0;
 
-for (let contador = 0; contador < listaDeTeclas.length; contador++) {
-    const tecla = listaDeTeclas[contador];
+// Itera sobre cada tecla e adiciona os eventos necessários
+listaDeTeclas.forEach((tecla) => {
     const instrumento = tecla.classList[1];
     const idAudio = `#som_${instrumento}`;
 
-    tecla.onclick = () => {
+    // Evento de clique para tocar o som
+    tecla.addEventListener('click', () => {
         tocarSom(idAudio);
-    }
-}
+    });
+
+    // Evento de pressionar a tecla Enter ou Espaço para adicionar classe 'ativa'
+    tecla.addEventListener('keydown', (evento) => {
+        if (evento.code === 'Enter' || evento.code === 'Space') {
+            tecla.classList.add('ativa');
+        }
+    });
+
+    // Evento de soltar a tecla Enter ou Espaço para remover a classe 'ativa'
+    tecla.addEventListener('keyup', (evento) => {
+        if (evento.code === 'Enter' || evento.code === 'Space') {
+            tecla.classList.remove('ativa');
+        }
+    });
+});
