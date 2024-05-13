@@ -1,4 +1,6 @@
-// Por convenção, é nomeado como main.js o arquivo que contém o código principal da aplicação.
+// main.js => Por convenção, o arquivo principal de um projeto é chamado de main.js
 
-// Retorna o primeiro elemento que corresponde ao seletor especificado. (.tecla_pom)
+// querySelector() => Retorna o primeiro elemento que corresponde a um grupo de seletores CSS.
 document.querySelector('.tecla_pom');
+// play() => Inicia ou retoma a reprodução do áudio ou vídeo.
+document.querySelector('#som_tecla_pom').play();
