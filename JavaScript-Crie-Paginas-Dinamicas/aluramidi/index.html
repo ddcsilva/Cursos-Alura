@@ -15,8 +15,6 @@
     <link rel="icon" type="image/png" href="images/bateria.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
-
-    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -52,6 +50,11 @@
     <audio src="sounds/keyx.wav" id="som_tecla_tic"></audio>
     <audio src="sounds/keyc.wav" id="som_tecla_tom"></audio>
 
+    <!-- Se o código JavaScript depende de um elemento HTML que ainda não foi carregado, 
+        a chamada da função JavaScript deve ser feita após o carregamento do elemento, 
+        ou seja, no final do corpo do documento HTML -->
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
