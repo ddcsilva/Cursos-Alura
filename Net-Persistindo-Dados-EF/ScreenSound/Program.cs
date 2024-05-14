@@ -4,8 +4,10 @@ using ScreenSound.Modelos;
 
 try
 {
-    var connection = new Connection();
-    var listaArtistas = connection.ListarArtistas();
+    var artistaDAL = new ArtistaDAL();
+    artistaDAL.Adicionar(new Artista("Legião Urbana", "Legião Urbana foi uma banda brasileira de rock formada em 1982 em Brasília por Renato Russo, Dado Villa-Lobos e Marcelo Bonfá."));
+
+    var listaArtistas = artistaDAL.Listar();
 
     foreach (var artista in listaArtistas)
     {
