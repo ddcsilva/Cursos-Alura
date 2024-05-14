@@ -2,7 +2,7 @@
 
 public class Album
 {
-    private List<Musica> musicas = new List<Musica>();
+    private List<Musica> musicas = [];
 
     public Album(string nome)
     {
