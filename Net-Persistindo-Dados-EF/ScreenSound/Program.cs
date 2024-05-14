@@ -4,10 +4,15 @@ using ScreenSound.Modelos;
 
 try
 {
-    using var connection = new Connection().ObterConexao();
-    connection.Open();
+    var connection = new Connection();
+    var listaArtistas = connection.ListarArtistas();
 
-    Console.WriteLine($"O estado da conexão é {connection.State}");
+    foreach (var artista in listaArtistas)
+    {
+        Console.WriteLine($"Nome: {artista.Nome}");
+        Console.WriteLine($"Biografia: {artista.Bio}");
+        Console.WriteLine();
+    }
 }
 catch (Exception ex)
 {
