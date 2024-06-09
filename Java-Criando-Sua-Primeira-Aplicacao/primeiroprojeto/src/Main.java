@@ -8,5 +8,18 @@ public class Main {
 
         boolean incluidoNoPlano = true;
         double notaDofilme = 8.1;
+
+        // Média calculada pelas 3 notas da Jack, Paulo e Suelen
+        double media = (9.8 + 6.3 + 8.0) / 3;
+        System.out.println(media);
+
+        String sinopse = """
+                Filme Top Gun
+                Filme de aventura com galã dos anos 80
+                Muito bom!
+                Ano de Lançamento
+                """ + anoDeLancamento;
+
+        System.out.println(sinopse);
     }
 }
