@@ -6,11 +6,14 @@ const imagem = document.querySelector('.app__image');
 const titulo = document.querySelector('.app__title');
 const botoes = document.querySelectorAll('.app__card-button');
 const inputMusica = document.querySelector('#alternar-musica');
-const botaoIniciarEParar = document.querySelector('#start-pause');
+const botaoIniciarOuPausar = document.querySelector('#start-pause');
+const somIniciar = new Audio('sons/play.wav');
+const somPausar = new Audio('sons/pause.mp3');
+const somTerminar = new Audio('sons/beep.mp3');
 const musica = new Audio('sons/luna-rise-part-one.mp3').loop = true;
 
 let tempoDecorridoEmSegundos = 5;
-let intervaloId = null;
+let temporizadorIntervalo = null;
 
 botaoFoco.addEventListener('click', () => {
     alterarContexto('foco');
@@ -42,13 +45,19 @@ function alterarContexto(contexto) {
 
     switch (contexto) {
         case 'foco':
-            titulo.innerHTML = `Otimizar a produtividade, <strong class="app__title-strong">mergulhe no que importa.</strong>`;
+            titulo.innerHTML = `
+                Otimizar a produtividade, <strong class="app__title-strong">mergulhe no que importa.</strong>
+            `;
             break;
         case 'descanso-curto':
-            titulo.innerHTML = `Que tal dar uma respirada? <strong class="app__title-strong">Faça uma pausa curta!</strong>`;
+            titulo.innerHTML = `
+                Que tal dar uma respirada? <strong class="app__title-strong">Faça uma pausa curta!</strong>
+            `;
             break;
         case 'descanso-longo':
-            titulo.innerHTML = `Hora de voltar à superfície. <strong class="app__title-strong">Faça uma pausa longa.</strong>`;
+            titulo.innerHTML = `
+                Hora de voltar à superfície. <strong class="app__title-strong">Faça uma pausa longa.</strong>
+            `;
             break;
         default:
             break;
@@ -56,12 +65,28 @@ function alterarContexto(contexto) {
 }
 
 const contagemRegressiva = () => {
+    if (tempoDecorridoEmSegundos <= 0) {
+        somTerminar.play();
+        alert('Tempo esgotado!');
+        zerarTempo();
+        return;
+    }
     tempoDecorridoEmSegundos -= 1;
-    console.log(`Temporizador: ${tempoDecorridoEmSegundos}`);
 }
 
-botaoIniciarEParar.addEventListener('click', contagemRegressiva);
+botaoIniciarOuPausar.addEventListener('click', iniciarOuPausar);
 
-function iniciar() {
-    intervaloId = setInterval(contagemRegressiva, 1000);
+function iniciarOuPausar() {
+    if (temporizadorIntervalo) {
+        somPausar.play();
+        zerarTempo();
+        return;
+    }
+    somIniciar.play();
+    temporizadorIntervalo = setInterval(contagemRegressiva, 1000);
+}
+
+function zerarTempo() {
+    clearInterval(temporizadorIntervalo);
+    tempoDecorridoEmSegundos = null;
 }
