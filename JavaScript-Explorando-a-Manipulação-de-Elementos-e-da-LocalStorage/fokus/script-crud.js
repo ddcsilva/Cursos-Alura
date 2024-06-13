@@ -12,9 +12,9 @@ formularioAdicionarTarefa.addEventListener('submit', function (evento) {
     evento.preventDefault();
 
     const tarefa = {
-        descricao: descricaoTarefa
+        descricao: caixaDeTexto.value,
     }
 
     tarefas.push(tarefa);
-    localStorage.setItem('tarefas', tarefas);
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
 });
